@@ -1,0 +1,13 @@
+{
+  "name": "medcom.dk.fhir.ig.template",
+  "version": "0.0.1",
+  "type": "fhir.template",
+  "license": "CC0-1.0",
+  "description": "MedComs Template - for use with MedCom-published FHIR IGs",
+  "author": "http://github.com/medcomdk",
+  "canonical": "http://github.com/medcomdk/medcom-fhir-ig-template",
+  "base": "fhir.base.template",
+  "dependencies": {
+    "fhir.base.template": "current"
+  }
+}
