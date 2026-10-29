@@ -4,7 +4,8 @@ from langchain_core.documents import Document
 import os 
 import pandas as pd
 
-df = pd.read_csv("medcom_fhir_ig.csv")
+with open("medcom_fhir_ig.txt", "r", encoding="utf-8") as file:
+    text = file.read()
 embeddings = OllamaEmbeddings(model="mxbai-embed-large")
 
 db_location = "./chrome_langchain_db"
@@ -20,9 +21,9 @@ if add_documents:
     documents = []
     ids = []
 
-    for i, row in df.iterrows():
+    for i, chunk in enumerate(text.split("\n\n")):
         document = Document(
-            page_content=row["Title"] + " " + row["Review"],
+            page_content=chunk,
             id=str(i)
         )
         ids.append(str(i))
